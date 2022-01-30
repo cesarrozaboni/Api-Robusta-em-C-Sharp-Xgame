@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{038D8D33-8109-4E40-AEF9-D0872C6E638F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XGame.Domain</RootNamespace>
+    <AssemblyName>XGame.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="prmToolkit.NotificationPattern, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\prmToolkit.NotificationPattern.1.1.3\lib\netstandard1.0\prmToolkit.NotificationPattern.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Arguments\Base\ResponseBase.cs" />
+    <Compile Include="Arguments\Jogador\AdicionarJogadorRequest.cs" />
+    <Compile Include="Arguments\Jogador\AdicionarJogadorResponse.cs" />
+    <Compile Include="Arguments\Jogador\AlterarJogadorRequest.cs" />
+    <Compile Include="Arguments\Jogador\AlterarJogadorResponse.cs" />
+    <Compile Include="Arguments\Jogador\AutenticarJogadorResponse.cs" />
+    <Compile Include="Arguments\Jogador\AutenticarJogadorRequest.cs" />
+    <Compile Include="Arguments\Jogador\JogadorReponse.cs" />
+    <Compile Include="Arguments\Jogo\AdicionarJogoRequest.cs" />
+    <Compile Include="Arguments\Jogo\AdicionarJogoResponse.cs" />
+    <Compile Include="Arguments\Jogo\AlterarJogoRequest.cs" />
+    <Compile Include="Arguments\Jogo\AlterarJogoResponse.cs" />
+    <Compile Include="Arguments\Jogo\ExcluirJogoResponse.cs" />
+    <Compile Include="Arguments\Jogo\JogoResponse.cs" />
+    <Compile Include="Arguments\Plataforma\AdicionarPlataformaRequest.cs" />
+    <Compile Include="Arguments\Plataforma\AdicionarPlataformaResponse.cs" />
+    <Compile Include="Entities\Base\EntityBase.cs" />
+    <Compile Include="Entities\Jogador.cs" />
+    <Compile Include="Entities\Jogo.cs" />
+    <Compile Include="Entities\JogoPlataforma.cs" />
+    <Compile Include="Entities\MeuJogo.cs" />
+    <Compile Include="Entities\Plataforma.cs" />
+    <Compile Include="Enum\EnumSituacaoJogador.cs" />
+    <Compile Include="Extensions\StringExtension.cs" />
+    <Compile Include="Interfaces\Arguments\IResponse.cs" />
+    <Compile Include="Interfaces\Arguments\IRequest.cs" />
+    <Compile Include="Interfaces\Repositories\Base\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repositories\IRepositoryJogo.cs" />
+    <Compile Include="Interfaces\Repositories\IRepositoryJogador.cs" />
+    <Compile Include="Interfaces\Services\Base\IServiceBase.cs" />
+    <Compile Include="Interfaces\Services\IServiceJogo.cs" />
+    <Compile Include="Interfaces\Services\IServicePlataforma.cs" />
+    <Compile Include="Interfaces\Services\IServiceJogador.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\ResourceMessage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceMessage.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ServiceJogo.cs" />
+    <Compile Include="Services\ServiceJogador.cs" />
+    <Compile Include="ValueObjects\Email.cs" />
+    <Compile Include="ValueObjects\Nome.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ResourceMessage.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceMessage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Diagrams\XGame.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
